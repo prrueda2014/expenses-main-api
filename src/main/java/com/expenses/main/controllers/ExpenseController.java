@@ -4,6 +4,8 @@ import com.expenses.main.exceptions.RecordNotFoundException;
 import com.expenses.main.services.ExpenseService;
 import com.expenses.main.models.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +22,8 @@ public class ExpenseController {
     ExpenseService expenseService;
 
     @GetMapping
-    public ResponseEntity<List<Expense>> getAllExpenses() {
-        return new ResponseEntity<>(expenseService.getAllExpenses(), new HttpHeaders(), HttpStatus.OK);
+    public ResponseEntity<Page<Expense>> getAllExpenses(Pageable pageable) {
+        return new ResponseEntity<>(expenseService.getAllExpenses(pageable), new HttpHeaders(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

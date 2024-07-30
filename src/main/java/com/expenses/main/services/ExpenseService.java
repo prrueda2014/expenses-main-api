@@ -4,6 +4,8 @@ import com.expenses.main.dao.ExpenseRepository;
 import com.expenses.main.exceptions.RecordNotFoundException;
 import com.expenses.main.models.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +17,7 @@ public class ExpenseService {
     @Autowired
     ExpenseRepository expenseRepository;
 
-    public List<Expense> getAllExpenses() { return expenseRepository.findAll(); }
+    public Page<Expense> getAllExpenses(Pageable pageable) { return expenseRepository.findAll(pageable); }
 
     public Expense getExpenseById(Long id) throws RecordNotFoundException {
         return expenseRepository.findById(id).orElseThrow(() -> new RecordNotFoundException("Expense not found!"));
