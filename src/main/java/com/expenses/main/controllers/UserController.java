@@ -1,6 +1,6 @@
 package com.expenses.main.controllers;
 
-import com.expenses.main.models.Users;
+import com.expenses.main.models.User;
 import com.expenses.main.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,7 +20,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public ResponseEntity<Page<Users>> listUser(Pageable pageable) {
+    public ResponseEntity<Page<User>> listUser(Pageable pageable) {
         return new ResponseEntity<>(userService.findAll(pageable), new HttpHeaders(), HttpStatus.OK);
     }
 }

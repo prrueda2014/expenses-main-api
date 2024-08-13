@@ -1,10 +1,20 @@
 package com.expenses.main.services;
 
-import com.expenses.main.models.Users;
+import com.expenses.main.exceptions.UserNotFoundException;
+import com.expenses.main.models.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface UserService {
 
-    Page<Users> findAll(Pageable pageable);
+    Page<User> findAll(Pageable pageable);
+
+    User save (User user);
+
+    String delete(Long id) throws UserNotFoundException;
+
+    User findById(Long id) throws UserNotFoundException;
+
+    User update(Long id, User user) throws UserNotFoundException;
+
 }
