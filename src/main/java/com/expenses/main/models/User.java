@@ -31,9 +31,8 @@ public class User implements Serializable {
     @Column
     private String password;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private List<Emails> emails;
+    @Column
+    private String email;
 
     @Enumerated(value = EnumType.STRING)
     @Column(name = "role", columnDefinition = "varchar(5) default 'USER'")

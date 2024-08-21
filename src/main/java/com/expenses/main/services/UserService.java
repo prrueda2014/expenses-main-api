@@ -5,6 +5,8 @@ import com.expenses.main.models.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Optional;
+
 public interface UserService {
 
     Page<User> findAll(Pageable pageable);
@@ -13,7 +15,7 @@ public interface UserService {
 
     String delete(Long id) throws UserNotFoundException;
 
-    User findById(Long id) throws UserNotFoundException;
+    Optional<User> findById(Long id) throws UserNotFoundException;
 
     User update(Long id, User user) throws UserNotFoundException;
 
