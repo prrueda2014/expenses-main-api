@@ -1,7 +1,6 @@
 package com.expenses.main.services.implementation;
 
 import com.expenses.main.dao.UserRepository;
-import com.expenses.main.exceptions.RecordNotFoundException;
 import com.expenses.main.exceptions.UserNotFoundException;
 import com.expenses.main.models.User;
 import com.expenses.main.services.UserService;

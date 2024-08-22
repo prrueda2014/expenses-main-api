@@ -15,7 +15,7 @@ import java.awt.image.ReplicateScaleFilter;
 import java.util.List;
 
 @RestController
-@RequestMapping("/expenses")
+@RequestMapping("admin/expenses")
 public class ExpenseController {
 
     @Autowired

@@ -1,15 +1,17 @@
 package com.expenses.main.models;
 
 import com.expenses.main.enums.Roles;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 @Data
 public class User implements Serializable {
@@ -25,7 +27,7 @@ public class User implements Serializable {
     @Column
     private String lastname;
 
-    @Column
+    @Column(unique = true)
     private String username;
 
     @Column
@@ -35,7 +37,7 @@ public class User implements Serializable {
     private String email;
 
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "role", columnDefinition = "varchar(5) default 'USER'")
+    @Column(name = "role")
     private Roles role = Roles.USER;
 
 }
